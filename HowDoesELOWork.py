@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'HowDoesELOWork.ui'
 #
-# Created: Thu Apr 07 11:41:26 2016
+# Created: Fri Apr 08 11:46:09 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -27,7 +27,7 @@ except AttributeError:
 class Ui_HowDoesELOWork(object):
     def setupUi(self, HowDoesELOWork):
         HowDoesELOWork.setObjectName(_fromUtf8("HowDoesELOWork"))
-        HowDoesELOWork.resize(800, 600)
+        HowDoesELOWork.resize(800, 715)
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -173,6 +173,7 @@ class Ui_HowDoesELOWork(object):
         self.gridLayout = QtGui.QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
         self.textBrowser = QtGui.QTextBrowser(self.centralwidget)
+        self.textBrowser.setMaximumSize(QtCore.QSize(16777215, 16777215))
         self.textBrowser.setObjectName(_fromUtf8("textBrowser"))
         self.gridLayout.addWidget(self.textBrowser, 0, 0, 1, 1)
         HowDoesELOWork.setCentralWidget(self.centralwidget)
