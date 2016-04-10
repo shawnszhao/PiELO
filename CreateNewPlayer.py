@@ -29,12 +29,13 @@ class Sammy:
         self.name = name
         self.password = 'password'
         self.ELO = [1500]
+        self.wins = 0
+        self.loses = 0
         self.sinks = []
         self.score = []
         self.oppname = []
         self.opprank = []
         self.date = [str(datetime.date.today())]
-
 
 # In[ ]:
 
