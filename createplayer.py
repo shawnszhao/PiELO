@@ -56,3 +56,9 @@ def createaplayer(name):
     output = open('AllSammys' + '.pkl', 'wb')
     pickle.dump(AllSammys, output)
 
+def accept(**kwargs):
+    print('Accepted bitch')
+    from IPython import embed
+    embed()
+    return False
+

@@ -178,11 +178,19 @@ class Ui_CreateNewPlayer(object):
         self.Title.setFont(font)
         self.Title.setObjectName(_fromUtf8("Title"))
         self.formLayout.setWidget(0, QtGui.QFormLayout.LabelRole, self.Title)
+        self.setup_routes()
+
+
+    def retranslateUi(self, CreateNewPlayer):
+        CreateNewPlayer.setWindowTitle(_translate("CreateNewPlayer", "Create New Player", None))
+        self.Title.setText(_translate("CreateNewPlayer", "Create New Player", None))
+        self.PasswordRemind.setText(_translate("CreateNewPlayer", "Remember to set your password after", None))
+
+    def setup_routes(self,**kwargs):
         self.Okay = QtGui.QDialogButtonBox(CreateNewPlayer)
         self.Okay.setOrientation(QtCore.Qt.Horizontal)
         self.Okay.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok)
         self.Okay.setObjectName(_fromUtf8("Okay"))
-        self.Okay.button(QtGui.QDialogButtonBox.Reset).clicked.connect(createplayer(str(createplayer)))
         self.formLayout.setWidget(3, QtGui.QFormLayout.LabelRole, self.Okay)
         self.PasswordRemind = QtGui.QLabel(CreateNewPlayer)
         self.PasswordRemind.setObjectName(_fromUtf8("PasswordRemind"))
@@ -196,15 +204,9 @@ class Ui_CreateNewPlayer(object):
         self.formLayout.setWidget(2, QtGui.QFormLayout.SpanningRole, self.NameEntryBox)
 
         self.retranslateUi(CreateNewPlayer)
-        QtCore.QObject.connect(self.Okay, QtCore.SIGNAL(_fromUtf8("accepted()")), CreateNewPlayer.accept)
+        QtCore.QObject.connect(self.Okay, QtCore.SIGNAL(_fromUtf8("accepted()")), createplayer.accept)
         QtCore.QObject.connect(self.Okay, QtCore.SIGNAL(_fromUtf8("rejected()")), CreateNewPlayer.reject)
         QtCore.QMetaObject.connectSlotsByName(CreateNewPlayer)
-
-
-    def retranslateUi(self, CreateNewPlayer):
-        CreateNewPlayer.setWindowTitle(_translate("CreateNewPlayer", "Create New Player", None))
-        self.Title.setText(_translate("CreateNewPlayer", "Create New Player", None))
-        self.PasswordRemind.setText(_translate("CreateNewPlayer", "Remember to set your password after", None))
 
 
 if __name__ == "__main__":
