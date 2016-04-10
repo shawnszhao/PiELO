@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ChangePassword.ui'
 #
-# Created: Wed Apr 06 14:42:39 2016
+# Created: Sun Apr 10 16:04:16 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,7 +26,7 @@ except AttributeError:
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName(_fromUtf8("Dialog"))
-        Dialog.resize(400, 153)
+        Dialog.resize(400, 167)
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -317,15 +317,18 @@ class Ui_Dialog(object):
         self.label = QtGui.QLabel(Dialog)
         self.label.setObjectName(_fromUtf8("label"))
         self.verticalLayout.addWidget(self.label)
-        self.NameEntryBox = QtGui.QLineEdit(Dialog)
-        self.NameEntryBox.setObjectName(_fromUtf8("NameEntryBox"))
-        self.verticalLayout.addWidget(self.NameEntryBox)
-        self.NameEntryBox_2 = QtGui.QLineEdit(Dialog)
-        self.NameEntryBox_2.setObjectName(_fromUtf8("NameEntryBox_2"))
-        self.verticalLayout.addWidget(self.NameEntryBox_2)
-        self.NameEntryBox_3 = QtGui.QLineEdit(Dialog)
-        self.NameEntryBox_3.setObjectName(_fromUtf8("NameEntryBox_3"))
-        self.verticalLayout.addWidget(self.NameEntryBox_3)
+        self.username = QtGui.QLineEdit(Dialog)
+        self.username.setObjectName(_fromUtf8("username"))
+        self.verticalLayout.addWidget(self.username)
+        self.oldpass = QtGui.QLineEdit(Dialog)
+        self.oldpass.setObjectName(_fromUtf8("oldpass"))
+        self.verticalLayout.addWidget(self.oldpass)
+        self.newpass = QtGui.QLineEdit(Dialog)
+        self.newpass.setObjectName(_fromUtf8("newpass"))
+        self.verticalLayout.addWidget(self.newpass)
+        self.newpassconf = QtGui.QLineEdit(Dialog)
+        self.newpassconf.setObjectName(_fromUtf8("newpassconf"))
+        self.verticalLayout.addWidget(self.newpassconf)
         self.Okay = QtGui.QDialogButtonBox(Dialog)
         self.Okay.setOrientation(QtCore.Qt.Horizontal)
         self.Okay.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok)
@@ -339,11 +342,19 @@ class Ui_Dialog(object):
         Dialog.setWindowTitle(_translate("Dialog", "Create New Password", None))
         self.Title.setText(_translate("Dialog", "Change Password", None))
         self.label.setText(_translate("Dialog", "Default Password is \"password\"", None))
-        self.NameEntryBox.setPlaceholderText(_translate("Dialog", "Enter Old Password", None))
-        self.NameEntryBox_2.setPlaceholderText(_translate("Dialog", "Enter New Password", None))
-        self.NameEntryBox_3.setPlaceholderText(_translate("Dialog", "Reenter New Password", None))
+        self.username.setPlaceholderText(_translate("Dialog", "User Name", None))
+        self.oldpass.setPlaceholderText(_translate("Dialog", "Enter Old Password", None))
+        self.newpass.setPlaceholderText(_translate("Dialog", "Enter New Password", None))
+        self.newpassconf.setPlaceholderText(_translate("Dialog", "Reenter New Password", None))
 
+    def setup_routes(self):
+        QtCore.QObject.connect(self.Okay, QtCore.SIGNAL(_fromUtf8("accepted()")), self.derp)
+        QtCore.QObject.connect(self.Okay, QtCore.SIGNAL(_fromUtf8("accepted()")), CreateNewPlayer.accept)
+        QtCore.QObject.connect(self.Okay, QtCore.SIGNAL(_fromUtf8("rejected()")), CreateNewPlayer.reject)
 
+    def derp(self):
+        if self.NameEntryBox_2.text() == self.NameEntryBox_3.text():
+            
 if __name__ == "__main__":
     import sys
     app = QtGui.QApplication(sys.argv)
