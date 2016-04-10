@@ -212,6 +212,7 @@ class Ui_SammyBPLeaderboard(object):
         self.CreateNewPlayer = QtGui.QPushButton(self.centralwidget)
         self.CreateNewPlayer.setAcceptDrops(True)
         self.CreateNewPlayer.setObjectName(_fromUtf8("CreateNewPlayer"))
+        self.CreateNewPlayer.clicked.connect(self.showcreatenewplayer)
         self.horizontalLayout_3.addWidget(self.CreateNewPlayer)
         self.ChangePassword = QtGui.QPushButton(self.centralwidget)
         self.ChangePassword.setObjectName(_fromUtf8("ChangePassword"))
@@ -245,7 +246,10 @@ class Ui_SammyBPLeaderboard(object):
 
     def showunderthehood(one,two):
     	os.system("python HowDoesELOWork.py")
-    	print(one,two)
+    	#print(one,two)
+    def showcreatenewplayer(one,two):
+    	os.system("python CreateNewPlayer.py")
+    	#print(one,two)
     def retranslateUi(self, SammyBPLeaderboard):
         SammyBPLeaderboard.setWindowTitle(_translate("SammyBPLeaderboard", "Sammy BP LeaderBoard", None))
         self.Title.setText(_translate("SammyBPLeaderboard", "Sammy\'s BP Leaderboard", None))

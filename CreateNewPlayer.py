@@ -8,7 +8,56 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt4 import QtCore, QtGui
-import createplayer
+import numpy as np
+import pickle
+import datetime
+from numpy import pi, sqrt, linspace
+#import createplayer
+
+class Sammy:
+    """ The class Sammy will contain the information about each player, containing the following attributes: 
+    
+    Attributes: 
+        Name: A string representing the Sammy's name. This is the only input, and must be a string.
+        Password: A password to be entered by each player so no false games can be recorded. Defaults to string "password".
+        ELO: A list containing their ELO scores. Everyone starts at 1500
+        Sinks: A list containing the number of sinks per game
+        Score: A list containing the score of each game
+        Opponent Name: A list of names to ensure no false names are created to inflate or deflate ELOs. 
+        Opponent Rank: A list containing the ELO of the opponent of each game
+    """
+    def __init__(self, name):
+        self.name = name
+        self.password = 'password'
+        self.ELO = [1500]
+        self.sinks = []
+        self.score = []
+        self.oppname = []
+        self.opprank = []
+        self.date = [str(datetime.date.today())]
+
+
+# In[ ]:
+
+"""
+Loads list of AllSammys
+"""
+import pickle
+pkl_file = open('AllSammys.pkl', 'rb')
+AllSammys = pickle.load(pkl_file)
+
+
+# In[ ]:
+
+# def createaplayer(name):
+#     exec("%s = Sammy(name)" % (name.replace(" ","")))
+#     AllSammys.append(name)
+#     output = open('AllSammys' + '.pkl', 'wb')
+#     pickle.dump(AllSammys, output)
+
+#     def accept():
+#         createplayer(str(newplayername))
+#         return False 
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -196,17 +245,31 @@ class Ui_CreateNewPlayer(object):
         self.PasswordRemind.setObjectName(_fromUtf8("PasswordRemind"))
         self.formLayout.setWidget(1, QtGui.QFormLayout.LabelRole, self.PasswordRemind)
         self.NameEntryBox = QtGui.QLineEdit(CreateNewPlayer)
-        self.NameEntryBox.setText('team')
-        newplayername = self.NameEntryBox.displayText()
-        print(str(newplayername))
-        print(type(str(newplayername)))
+        #self.NameEntryBox.setText('team')
+        #newplayername = self.NameEntryBox.displayText()
+        #print(str(newplayername))
+        #print(type(str(newplayername)))
         self.NameEntryBox.setObjectName(_fromUtf8("NameEntryBox"))
         self.formLayout.setWidget(2, QtGui.QFormLayout.SpanningRole, self.NameEntryBox)
 
         self.retranslateUi(CreateNewPlayer)
-        QtCore.QObject.connect(self.Okay, QtCore.SIGNAL(_fromUtf8("accepted()")), createplayer.accept)
+        QtCore.QObject.connect(self.Okay, QtCore.SIGNAL(_fromUtf8("accepted()")), self.derp)
+        QtCore.QObject.connect(self.Okay, QtCore.SIGNAL(_fromUtf8("accepted()")), CreateNewPlayer.accept)
         QtCore.QObject.connect(self.Okay, QtCore.SIGNAL(_fromUtf8("rejected()")), CreateNewPlayer.reject)
         QtCore.QMetaObject.connectSlotsByName(CreateNewPlayer)
+
+    def derp(self):
+        a=self.NameEntryBox.text()
+        self.NameEntryBox.setText('')
+        player1 = a.replace(" ", "")
+        exec("%s = Sammy(a)" % (a.replace(" ","")))
+        AllSammys.append(a)
+        output = open('AllSammys' + '.pkl', 'wb')
+        pickle.dump(AllSammys, output)        
+        output1 = open(player1 + '.pkl','wb')
+        pickle.dump(player1, output1)    
+        print(a)
+        #print(player1)
 
 
 if __name__ == "__main__":
