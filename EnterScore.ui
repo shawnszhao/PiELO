@@ -426,7 +426,11 @@
    </palette>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Enter Score</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>SAMCrest.bmp</normaloff>SAMCrest.bmp</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="2" column="1">

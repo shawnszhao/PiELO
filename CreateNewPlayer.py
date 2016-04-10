@@ -2,12 +2,13 @@
 
 # Form implementation generated from reading ui file 'CreateNewPlayer.ui'
 #
-# Created: Wed Apr 06 13:37:28 2016
+# Created: Wed Apr 06 14:42:38 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt4 import QtCore, QtGui
+import createplayer
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -23,10 +24,10 @@ except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
 
-class Ui_Dialog(object):
-    def setupUi(self, Dialog):
-        Dialog.setObjectName(_fromUtf8("Dialog"))
-        Dialog.resize(219, 124)
+class Ui_CreateNewPlayer(object):
+    def setupUi(self, CreateNewPlayer):
+        CreateNewPlayer.setObjectName(_fromUtf8("CreateNewPlayer"))
+        CreateNewPlayer.resize(219, 124)
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -163,10 +164,13 @@ class Ui_Dialog(object):
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ToolTipText, brush)
-        Dialog.setPalette(palette)
-        self.formLayout = QtGui.QFormLayout(Dialog)
+        CreateNewPlayer.setPalette(palette)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8("SAMCrest.bmp")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        CreateNewPlayer.setWindowIcon(icon)
+        self.formLayout = QtGui.QFormLayout(CreateNewPlayer)
         self.formLayout.setObjectName(_fromUtf8("formLayout"))
-        self.Title = QtGui.QLabel(Dialog)
+        self.Title = QtGui.QLabel(CreateNewPlayer)
         font = QtGui.QFont()
         font.setPointSize(14)
         font.setBold(True)
@@ -174,35 +178,41 @@ class Ui_Dialog(object):
         self.Title.setFont(font)
         self.Title.setObjectName(_fromUtf8("Title"))
         self.formLayout.setWidget(0, QtGui.QFormLayout.LabelRole, self.Title)
-        self.Okay = QtGui.QDialogButtonBox(Dialog)
+        self.Okay = QtGui.QDialogButtonBox(CreateNewPlayer)
         self.Okay.setOrientation(QtCore.Qt.Horizontal)
         self.Okay.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok)
         self.Okay.setObjectName(_fromUtf8("Okay"))
+        self.Okay.button(QtGui.QDialogButtonBox.Reset).clicked.connect(createplayer(str(createplayer)))
         self.formLayout.setWidget(3, QtGui.QFormLayout.LabelRole, self.Okay)
-        self.PasswordRemind = QtGui.QLabel(Dialog)
+        self.PasswordRemind = QtGui.QLabel(CreateNewPlayer)
         self.PasswordRemind.setObjectName(_fromUtf8("PasswordRemind"))
         self.formLayout.setWidget(1, QtGui.QFormLayout.LabelRole, self.PasswordRemind)
-        self.NameEntryBox = QtGui.QLineEdit(Dialog)
+        self.NameEntryBox = QtGui.QLineEdit(CreateNewPlayer)
+        self.NameEntryBox.setText('team')
+        newplayername = self.NameEntryBox.displayText()
+        print(str(newplayername))
+        print(type(str(newplayername)))
         self.NameEntryBox.setObjectName(_fromUtf8("NameEntryBox"))
         self.formLayout.setWidget(2, QtGui.QFormLayout.SpanningRole, self.NameEntryBox)
 
-        self.retranslateUi(Dialog)
-        QtCore.QObject.connect(self.Okay, QtCore.SIGNAL(_fromUtf8("accepted()")), Dialog.accept)
-        QtCore.QObject.connect(self.Okay, QtCore.SIGNAL(_fromUtf8("rejected()")), Dialog.reject)
-        QtCore.QMetaObject.connectSlotsByName(Dialog)
+        self.retranslateUi(CreateNewPlayer)
+        QtCore.QObject.connect(self.Okay, QtCore.SIGNAL(_fromUtf8("accepted()")), CreateNewPlayer.accept)
+        QtCore.QObject.connect(self.Okay, QtCore.SIGNAL(_fromUtf8("rejected()")), CreateNewPlayer.reject)
+        QtCore.QMetaObject.connectSlotsByName(CreateNewPlayer)
 
-    def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog", None))
-        self.Title.setText(_translate("Dialog", "Create New Player", None))
-        self.PasswordRemind.setText(_translate("Dialog", "Remember to set your password after", None))
+
+    def retranslateUi(self, CreateNewPlayer):
+        CreateNewPlayer.setWindowTitle(_translate("CreateNewPlayer", "Create New Player", None))
+        self.Title.setText(_translate("CreateNewPlayer", "Create New Player", None))
+        self.PasswordRemind.setText(_translate("CreateNewPlayer", "Remember to set your password after", None))
 
 
 if __name__ == "__main__":
     import sys
     app = QtGui.QApplication(sys.argv)
-    Dialog = QtGui.QDialog()
-    ui = Ui_Dialog()
-    ui.setupUi(Dialog)
-    Dialog.show()
+    CreateNewPlayer = QtGui.QDialog()
+    ui = Ui_CreateNewPlayer()
+    ui.setupUi(CreateNewPlayer)
+    CreateNewPlayer.show()
     sys.exit(app.exec_())
 

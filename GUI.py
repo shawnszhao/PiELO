@@ -9,7 +9,6 @@
 
 from PyQt4 import QtCore, QtGui
 import os
-import createplayer
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -213,7 +212,6 @@ class Ui_SammyBPLeaderboard(object):
         self.CreateNewPlayer = QtGui.QPushButton(self.centralwidget)
         self.CreateNewPlayer.setAcceptDrops(True)
         self.CreateNewPlayer.setObjectName(_fromUtf8("CreateNewPlayer"))
-        #self.CreateNewPlayer.clicked.connect(self.cnp)
         self.horizontalLayout_3.addWidget(self.CreateNewPlayer)
         self.ChangePassword = QtGui.QPushButton(self.centralwidget)
         self.ChangePassword.setObjectName(_fromUtf8("ChangePassword"))

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'EnterScore.ui'
 #
-# Created: Wed Apr 06 13:37:22 2016
+# Created: Wed Apr 06 14:42:40 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -164,6 +164,9 @@ class Ui_Dialog(object):
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ToolTipText, brush)
         Dialog.setPalette(palette)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8("SAMCrest.bmp")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        Dialog.setWindowIcon(icon)
         self.gridLayout = QtGui.QGridLayout(Dialog)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
         self.NameEntryBox_6 = QtGui.QLineEdit(Dialog)
@@ -359,7 +362,7 @@ class Ui_Dialog(object):
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog", None))
+        Dialog.setWindowTitle(_translate("Dialog", "Enter Score", None))
         self.NameEntryBox_6.setPlaceholderText(_translate("Dialog", "Score", None))
         self.NameEntryBox_2.setPlaceholderText(_translate("Dialog", "Sinks", None))
         self.NameEntryBox_3.setPlaceholderText(_translate("Dialog", "Password", None))

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ChangePassword.ui'
 #
-# Created: Wed Apr 06 13:37:24 2016
+# Created: Wed Apr 06 14:42:39 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -164,6 +164,9 @@ class Ui_Dialog(object):
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ToolTipText, brush)
         Dialog.setPalette(palette)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8("SAMCrest.bmp")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        Dialog.setWindowIcon(icon)
         self.verticalLayout = QtGui.QVBoxLayout(Dialog)
         self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
         self.Title = QtGui.QLabel(Dialog)
@@ -333,7 +336,7 @@ class Ui_Dialog(object):
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog", None))
+        Dialog.setWindowTitle(_translate("Dialog", "Create New Password", None))
         self.Title.setText(_translate("Dialog", "Change Password", None))
         self.label.setText(_translate("Dialog", "Default Password is \"password\"", None))
         self.NameEntryBox.setPlaceholderText(_translate("Dialog", "Enter Old Password", None))
