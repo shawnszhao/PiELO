@@ -12,7 +12,6 @@ import numpy as np
 import pickle
 import datetime
 from numpy import pi, sqrt, linspace
-#import createplayer
 
 class Sammy:
     """ The class Sammy will contain the information about each player, containing the following attributes: 
@@ -259,16 +258,17 @@ class Ui_CreateNewPlayer(object):
         QtCore.QMetaObject.connectSlotsByName(CreateNewPlayer)
 
     def derp(self):
-        a=self.NameEntryBox.text()
+        a=str(self.NameEntryBox.displayText())
         self.NameEntryBox.setText('')
         player1 = a.replace(" ", "")
         exec("%s = Sammy(a)" % (a.replace(" ","")))
-        AllSammys.append(a)
+        AllSammys.append(str(a))
         output = open('AllSammys' + '.pkl', 'wb')
-        pickle.dump(AllSammys, output)        
-        output1 = open(player1 + '.pkl','wb')
+        pickle.dump(AllSammys, output)
+        output1 = open(a + '.pkl','wb')
         pickle.dump(player1, output1)    
-        print(a)
+        #print(a)
+        #print(AllSammys)
         #print(player1)
 
 
