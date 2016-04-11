@@ -1,4 +1,16 @@
 (lp0
 S'Shawn Zhao'
 p1
+acsip
+_unpickle_type
+p2
+(S'PyQt4.QtCore'
+p3
+S'QString'
+p4
+(Vjeff
+p5
+tp6
+tp7
+Rp8
 a.

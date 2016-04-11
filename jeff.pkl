@@ -1,0 +1,13 @@
+csip
+_unpickle_type
+p0
+(S'PyQt4.QtCore'
+p1
+S'QString'
+p2
+(Vjeff
+p3
+tp4
+tp5
+Rp6
+.
